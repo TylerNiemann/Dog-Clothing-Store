@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 function ShoppingCart(){
     const [total,setTotal] = useState(0);
     const [cart, setCart] = useState({
@@ -15,8 +16,8 @@ function ShoppingCart(){
     ]
 });
 
-    const calculateTotal = (cart) => {
-      return cart.items.reduce((prev, curr) => prev + (curr.quantity * curr.price), 0)
+    const calculateTotal = (cart) => {  
+      return cart.items.reduce((prev, curr) => prev + (curr.quantity * curr.price),  0)
     }
 
     const newTotal = () => {
@@ -28,6 +29,7 @@ function ShoppingCart(){
             <button onClick={newTotal}>Calc</button>
             <h1>{total}</h1>
         </div>
+        
     )
 }
 

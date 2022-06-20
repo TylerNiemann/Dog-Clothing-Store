@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+}
+#navbar{
+    display: flex;
+    padding: 50px;
+    gap: 300px;
+    justify-content: center;
+    background-color: lightgrey;
+}
+#navbar > h1{
+    font-size: 40px;
+}
