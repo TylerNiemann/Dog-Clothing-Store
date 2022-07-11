@@ -1,10 +1,11 @@
 import React from "react";
+import "../styles/listproductitems.css"
 
 const ListProductItem = ({id,itemName,price}) => {
     return (
-        <div>
+        <div className="product">
             <h1>{itemName}</h1>
-            <p>{price}</p>
+            <h4>${price}</h4>
         </div>
     )
   };
