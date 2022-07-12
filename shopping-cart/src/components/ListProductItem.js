@@ -1,11 +1,22 @@
 import React from "react";
 import "../styles/listproductitems.css"
 
-const ListProductItem = ({id,itemName,price}) => {
+const ListProductItem = ({add,id, ...item}) => {
+
+    const addTo = () => {
+        add(item)
+    }
+
     return (
         <div className="product">
-            <h1>{itemName}</h1>
-            <h4>${price}</h4>
+            <img src={require('../components/images/placeholder.png')} alt="product"></img>
+            <div className="productInfo">
+              <h1>{item.itemName}</h1>
+              <div className="productPrice">
+                <h3>${item.price}</h3>
+                <button onClick={addTo} >Add To Cart</button>
+              </div>
+            </div>
         </div>
     )
   };

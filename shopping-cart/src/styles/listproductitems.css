@@ -4,5 +4,22 @@
     padding: 30px;
 }
 .product{
+    display: flex;
     padding: 30px;      
+}
+.product>img{
+    width: 150px;
+    height: 150px;
+}
+.productInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+.productPrice{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 160px;
 }
