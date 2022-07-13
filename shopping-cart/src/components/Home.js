@@ -1,9 +1,11 @@
 import React from "react";
+import "../styles/listproductitems.css"
 
 const Home = () => {
     return (
-      <div>
-        <h1>Home</h1>
+      <div id="home" >
+       <h1>Mock E-Commerce Store</h1>
+       <img src={require('../components/images/placeholder.png')} alt="product"></img>
       </div>
     );
   };

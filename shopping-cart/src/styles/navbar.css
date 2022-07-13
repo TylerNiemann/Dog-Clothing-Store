@@ -6,13 +6,13 @@
     padding: 50px;
     gap: 300px;
     justify-content: center;
-    background-color: lightgrey;
+    background-color: black;
 }
 #navbar > .link{
     font-size: 40px; 
-    color: black;
+    color: white;
     text-decoration: none;
 }
 #navbar > .link:hover{
-    color: white;
+    color: grey;
 }

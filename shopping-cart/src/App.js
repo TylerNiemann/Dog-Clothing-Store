@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route ,Navigate } from "react-router-dom";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import Navbar from "./components/Navbar";
@@ -38,6 +38,10 @@ function App() {
     else setCart(cart.filter(item => item.itemName !== oldItem.itemName));
   }
 
+  const emptyCart = () => {
+    setCart([]);
+  }
+
   const addQuantity = (index) => {
     index.qty += 1;
     setTotal(calculateTotal(cart).toFixed(2));
@@ -54,9 +58,10 @@ function App() {
     <BrowserRouter>
       <Navbar cart = {cartSize} />
     <Routes>
+      <Route path="/" element={<Navigate to="/components/Home"/>} />
       <Route path="/components/Home" element={<Home />} />
       <Route path="/components/Products" element={<Products  addcartItem = {addcartItem}  items = {rootItems}/> }/>
-      <Route path="/components/ShoppingCart" element={<ShoppingCart lower = {removecartItem}  cart = {cart} total = {total} />} />
+      <Route path="/components/ShoppingCart" element={<ShoppingCart emptyCart = {emptyCart}  lower = {removecartItem}  cart = {cart} total = {total} />} />
     </Routes>
   </BrowserRouter>
   );
