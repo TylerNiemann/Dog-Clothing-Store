@@ -14,17 +14,28 @@ function App() {
   const calculateTotal = (cart) => {  
     return cart.reduce((prev, curr) => prev + (curr.qty * curr.price),  0)
   }
-  
- useEffect(() => {
-  setCartSize(cart.length)
-  setTotal(calculateTotal(cart));
- },[cart, cart.length])
 
-  const addcartItem = (newItem) => {
-    setCart([...cart, newItem]);
+  const calculateLength = (cart) => {
+    return cart.reduce((prev, curr) => prev + curr.qty,  0)
   }
 
+ useEffect(() => {
+  setCartSize(calculateLength(cart));
+  setTotal(calculateTotal(cart).toFixed(2));
+ },[cart])
 
+  const addcartItem = (newItem) => {
+    if(cart.find(item => item.itemName === newItem.itemName)){
+      changeQuantity(cart.find(item => item.itemName === newItem.itemName));
+    }
+    else setCart([...cart, newItem]);
+  }
+
+  const changeQuantity = (index) => {
+    index.qty += 1;
+    setTotal(calculateTotal(cart).toFixed(2));
+    setCartSize(calculateLength(cart));
+  }
 
   return (
     <BrowserRouter>

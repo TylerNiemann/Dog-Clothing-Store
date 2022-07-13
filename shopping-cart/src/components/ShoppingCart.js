@@ -1,11 +1,16 @@
 import React from "react";
+import ListCartItem from "./ListCartItem";
 
 
-function ShoppingCart({cart,total}){
+function ShoppingCart({total,cart}){
     
     return (
-        <div>
-            <h1>{total}</h1>
+        <div id="cartProducts" >
+            {cart.map((item) =>
+        <ListCartItem key={item.id}
+                  {...item} />
+        )}     
+            <h1>Total: ${total}</h1>
         </div>
         
     )
