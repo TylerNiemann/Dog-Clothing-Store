@@ -19,20 +19,33 @@ function App() {
     return cart.reduce((prev, curr) => prev + curr.qty,  0)
   }
 
- useEffect(() => {
-  setCartSize(calculateLength(cart));
-  setTotal(calculateTotal(cart).toFixed(2));
+  useEffect(() => {
+    setCartSize(calculateLength(cart));
+    setTotal(calculateTotal(cart).toFixed(2));
  },[cart])
 
   const addcartItem = (newItem) => {
     if(cart.find(item => item.itemName === newItem.itemName)){
-      changeQuantity(cart.find(item => item.itemName === newItem.itemName));
+      addQuantity(cart.find(item => item.itemName === newItem.itemName));
     }
     else setCart([...cart, newItem]);
   }
 
-  const changeQuantity = (index) => {
+  const removecartItem = (oldItem) => {
+    if((cart.find(item => item.itemName === oldItem.itemName).qty > 1)){
+     lowerQuantity(cart.find(item => item.itemName === oldItem.itemName))
+    }
+    else setCart(cart.filter(item => item.itemName !== oldItem.itemName));
+  }
+
+  const addQuantity = (index) => {
     index.qty += 1;
+    setTotal(calculateTotal(cart).toFixed(2));
+    setCartSize(calculateLength(cart));
+  }
+
+  const lowerQuantity = (index) => {
+    index.qty -= 1;
     setTotal(calculateTotal(cart).toFixed(2));
     setCartSize(calculateLength(cart));
   }
@@ -43,7 +56,7 @@ function App() {
     <Routes>
       <Route path="/components/Home" element={<Home />} />
       <Route path="/components/Products" element={<Products  addcartItem = {addcartItem}  items = {rootItems}/> }/>
-      <Route path="/components/ShoppingCart" element={<ShoppingCart cart = {cart} total = {total} />} />
+      <Route path="/components/ShoppingCart" element={<ShoppingCart lower = {removecartItem}  cart = {cart} total = {total} />} />
     </Routes>
   </BrowserRouter>
   );

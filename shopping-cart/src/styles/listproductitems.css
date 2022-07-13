@@ -10,7 +10,7 @@
     padding-top: 50px;
 }
 #cartProducts>h1{
-    margin-left: 150px;
+    margin-left: 30%;
 }
 .product{
     display: flex;
@@ -31,4 +31,16 @@
     flex-direction: row;
     justify-content: space-between;
     width: 160px;
+}
+.removeButton{
+    width: 160px;
+}
+#buttonContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-left: 150px;
+}
+#buttonContainer>button{
+    width: 100px;
 }
