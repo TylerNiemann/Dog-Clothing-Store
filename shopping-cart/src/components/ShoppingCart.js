@@ -11,7 +11,7 @@ function ShoppingCart({emptyCart,lower,total,cart}){
     const navigate = useNavigate();
 
     const completeOrder = () =>{
-        if(cart === []){
+        if(cart.length === 0){
             alert("Cart is empty")
         }
         else {

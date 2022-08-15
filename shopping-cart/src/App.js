@@ -55,7 +55,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="Shopping-cart" >
       <Navbar cart = {cartSize} />
     <Routes>
       <Route path="/" element={<Navigate to="/components/Home"/>} />

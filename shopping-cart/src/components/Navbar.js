@@ -17,4 +17,4 @@ function Navbar({cart}){
     )
 }
 
-export default Navbar
+export default Navbar;
