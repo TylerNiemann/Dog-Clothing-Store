@@ -59,12 +59,16 @@ button:hover{
     width: 100px;
 }
 #home{
+    background-image: url(../components/images/background-wave.png);
+    background-size:  cover;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 100px;
+    margin-top: 50px;
     gap: 20px;
+    color: turquoise;
 }
 #home>img{
     width: 500px;

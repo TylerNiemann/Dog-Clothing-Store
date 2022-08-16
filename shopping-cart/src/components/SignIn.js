@@ -60,7 +60,7 @@ function SignIn(){
      if (loginStatus === 'LoggedOut') {
          return(
             <div className="SignInBlock">
-                <button onClick={signIn} >Sign In</button>
+                <button className="Sign" onClick={signIn} >Sign In</button>
             </div>
          )
     }
@@ -70,7 +70,7 @@ function SignIn(){
                 <img id="ProfilePic" src={getAuth().currentUser.photoURL || '/images/profile_placeholder.png'} alt="ProfilePic" ></img>
                 <div id="UserName">
                   <h4>{getAuth().currentUser.displayName}</h4>
-                  <button onClick={signOutUser}>Sign Out</button>
+                  <button className="Sign" onClick={signOutUser}>Sign Out</button>
                 </div>  
             </div>
         )

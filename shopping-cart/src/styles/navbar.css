@@ -6,7 +6,7 @@
     padding: 50px;
     gap: 300px;
     justify-content: center;
-    background-color: black;
+    background-color: turquoise;
 }
 #navbar > .link{
     font-size: 40px; 
@@ -24,4 +24,8 @@
     height: 30px;
     width: 30px;
     margin-right: 20px;
+}
+.Sign{
+    background-color: turquoise;
+    border: none;
 }
