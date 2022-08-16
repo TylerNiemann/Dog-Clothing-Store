@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/Shopping-cart/static/css/main.b1dbe6c5.css",
-    "main.js": "/Shopping-cart/static/js/main.e894c3cc.js",
+    "main.css": "/Shopping-cart/static/css/main.a233e40a.css",
+    "main.js": "/Shopping-cart/static/js/main.8a0bb0db.js",
+    "static/media/Spring-Summer-Classic-Pet-Dog-Vest-T-Shirt-Striped-Dog-Shirt-XS-XXL-Pet-Clothes-For.jpg": "/Shopping-cart/static/media/Spring-Summer-Classic-Pet-Dog-Vest-T-Shirt-Striped-Dog-Shirt-XS-XXL-Pet-Clothes-For.b2d7a00bffe82dce1398.jpg",
     "static/media/placeholder.png": "/Shopping-cart/static/media/placeholder.7d6861434cf0ebc3fcaa.png",
+    "static/media/background-wave.png": "/Shopping-cart/static/media/background-wave.4d168b80b6cbfdcb256b.png",
     "index.html": "/Shopping-cart/index.html",
-    "main.b1dbe6c5.css.map": "/Shopping-cart/static/css/main.b1dbe6c5.css.map",
-    "main.e894c3cc.js.map": "/Shopping-cart/static/js/main.e894c3cc.js.map"
+    "main.a233e40a.css.map": "/Shopping-cart/static/css/main.a233e40a.css.map",
+    "main.8a0bb0db.js.map": "/Shopping-cart/static/js/main.8a0bb0db.js.map"
   },
   "entrypoints": [
-    "static/css/main.b1dbe6c5.css",
-    "static/js/main.e894c3cc.js"
+    "static/css/main.a233e40a.css",
+    "static/js/main.8a0bb0db.js"
   ]
 }
