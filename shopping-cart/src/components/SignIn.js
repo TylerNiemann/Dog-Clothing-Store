@@ -60,7 +60,7 @@ function SignIn(){
      if (loginStatus === 'LoggedOut') {
          return(
             <div className="SignInBlock">
-                <button className="Sign" onClick={signIn} >Sign In</button>
+                <button id="In" className="Sign" onClick={signIn} >Sign In</button>
             </div>
          )
     }
