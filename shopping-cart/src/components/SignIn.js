@@ -25,7 +25,6 @@ function SignIn(){
 
     function signOutUser() {
         signOut(getAuth());
-        setLoginStatus('LoggedOut')
     }
 
     function isUserSignedIn() {
@@ -49,7 +48,8 @@ function SignIn(){
             // Hide sign-in button.
             //signInButtonElement.setAttribute('hidden', 'true');
         
-        }        
+        }
+        else setLoginStatus('LoggedOut')        
             // User is signed out!szd
             // Hide user's profile and sign-out button.
             //userNameElement.setAttribute('hidden', 'true');
