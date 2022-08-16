@@ -1,5 +1,4 @@
-import React from "react";
-import firebase from "../Firebase";
+import React, {useState,useEffect} from "react";
 import {
     getAuth,
     onAuthStateChanged,
@@ -7,8 +6,18 @@ import {
     signInWithPopup,
     signOut,
   } from 'firebase/auth';
+import initial from "../Firebase";
+import "../styles/navbar.css"  
+
 
 function SignIn(){
+
+    const [loginStatus, setLoginStatus] = useState('LoggedOut')
+
+    useEffect(()=>{
+        initFirebaseAuth();
+    });
+
     async function signIn() {
         let provider = new GoogleAuthProvider();
         await signInWithPopup(getAuth(), provider);
@@ -16,32 +25,21 @@ function SignIn(){
 
     function signOutUser() {
         signOut(getAuth());
-    }
-
-    function initFirebaseAuth() {
-        onAuthStateChanged(getAuth(), authStateObserver);
-    }
-
-    function getProfilePicUrl() {
-        return getAuth().currentUser.photoURL || '/images/profile_placeholder.png';
-    }
-
-    function getUserName() {
-        return getAuth().currentUser.displayName;
+        setLoginStatus('LoggedOut')
     }
 
     function isUserSignedIn() {
         return !!getAuth().currentUser;
     }
 
-    function authStateObserver(user) {
+    function initFirebaseAuth() {
+        onAuthStateChanged(getAuth(), SignInDisplay);
+   }
+
+    function SignInDisplay(user) {
         if (user) {
             
-            return (
-                    <div>
-                        <img src={'url(' + addSizeToGoogleProfilePic(getProfilePicUrl) + ')'} alt="ProfilePic" ></img>
-                    </div>
-                )
+            setLoginStatus('LoggedIn')
         
             // Show user's profile and sign-out button.
             //userNameElement.removeAttribute('hidden');
@@ -51,25 +49,34 @@ function SignIn(){
             // Hide sign-in button.
             //signInButtonElement.setAttribute('hidden', 'true');
         
-        } 
-        else {
+        }        
             // User is signed out!szd
             // Hide user's profile and sign-out button.
             //userNameElement.setAttribute('hidden', 'true');
             //userPicElement.setAttribute('hidden', 'true');
             //signOutButtonElement.setAttribute('hidden', 'true');
-        
-            // Show sign-in button.
-            //signInButtonElement.removeAttribute('hidden');
-        }
     }
 
-        function addSizeToGoogleProfilePic(url) {
-        if (url.indexOf('googleusercontent.com') !== -1 && url.indexOf('?') === -1) {
-            return url + '?sz=150';
-        }
-        return url;
-        }
+     if (loginStatus === 'LoggedOut') {
+         return(
+            <div className="SignInBlock">
+                <button onClick={signIn} >Sign In</button>
+            </div>
+         )
+    }
+    else if(loginStatus === 'LoggedIn'){
+        return(
+             <div className="SignInBlock" >
+                <img id="ProfilePic" src={getAuth().currentUser.photoURL || '/images/profile_placeholder.png'} alt="ProfilePic" ></img>
+                <div id="UserName">
+                  <h4>{getAuth().currentUser.displayName}</h4>
+                  <button onClick={signOutUser}>Sign Out</button>
+                </div>  
+            </div>
+        )
+    }
+        
+
 }
 
 export default SignIn;

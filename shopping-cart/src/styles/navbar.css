@@ -16,3 +16,12 @@
 #navbar > .link:hover{
     color: grey;
 }
+.SignInBlock{
+    color: white;
+    display: flex;
+}
+#ProfilePic{
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
+}
