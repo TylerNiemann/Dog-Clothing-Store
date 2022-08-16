@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { BrowserRouter, Routes, Route ,Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route ,Navigate } from "react-router-dom";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import Navbar from "./components/Navbar";
@@ -55,7 +55,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter basename="Shopping-cart" >
+    <HashRouter>
       <Navbar cart = {cartSize} />
     <Routes>
       <Route path="/" element={<Navigate to="/components/Home"/>} />
@@ -63,7 +63,7 @@ function App() {
       <Route path="/components/Products" element={<Products  addcartItem = {addcartItem}  items = {rootItems}/> }/>
       <Route path="/components/ShoppingCart" element={<ShoppingCart emptyCart = {emptyCart}  lower = {removecartItem}  cart = {cart} total = {total} />} />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
   );
 }
 
