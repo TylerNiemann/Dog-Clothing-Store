@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import rootItems from "./rootItems";
 import ShoppingCart from "./components/ShoppingCart";
 import { useAuth, signIn } from "./components/SignIn";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, query, where, collection } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
 
 function App() {
   const auth = useAuth()
@@ -28,21 +28,21 @@ function App() {
  },[cart])
 
   const addcartItem = (newItem) => {
-    if(cart.find(item => item.itemName === newItem.itemName)){
-      addQuantity(cart.find(item => item.itemName === newItem.itemName));
-    }
-    else{
       if (auth) {
         const db = getFirestore();
         const userCartRef = doc(db, "carts", auth.uid); 
-
-        getDoc(userCartRef)
-        .then((doc) => {
+        getDoc(userCartRef).then((doc) => {
           if (doc.exists()) {
-            console.log(query(collection(db, "carts"), where("qty", "==", "1")))
-            updateDoc(userCartRef, {
-              cart: arrayUnion(newItem),
-            });
+            const cart = Object.values(doc.data().cart);
+            const updatedCart = addQuantity(cart, newItem);
+            if (updatedCart.some((product) => product.itemName === newItem.itemName)){
+              updateDoc(userCartRef, { cart: updatedCart })
+            }
+            else{
+                updateDoc(userCartRef, {
+                cart: arrayUnion(newItem),
+                });
+            }
           }
           else {
             setDoc(userCartRef, {
@@ -57,7 +57,6 @@ function App() {
       else {
        signIn();
       }
-    };
   }
 
   const removecartItem = (oldItem) => {
@@ -71,10 +70,13 @@ function App() {
     setCart([]);
   }
 
-  const addQuantity = (index) => {
-    index.qty += 1;
-    setTotal(calculateTotal(cart).toFixed(2));
-    setCartSize(calculateLength(cart));
+  const addQuantity = (cart, newItem) => {
+    return cart.map((product) => {
+      if (product.itemName === newItem.itemName) {
+        return { ...product, qty: product.qty + 1 };
+      }
+      return product;
+    });
   }
 
   const lowerQuantity = (index) => {
