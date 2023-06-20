@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp} from "firebase/app";
+import { getFirestore, collection, getDocs, doc, setDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -15,5 +16,21 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const initial = initializeApp(firebaseConfig);
+
+const db = getFirestore(initial);
+
+const cartsCollectionRef = collection(db, "carts");
+
+getDocs(cartsCollectionRef)
+  .then((snapshot) => {
+    if (snapshot.empty) {
+      const cartDocRef = doc(cartsCollectionRef);
+      setDoc(cartDocRef, {});
+    }
+  })
+  .catch((error) => {
+    console.log("Error creating 'carts' collection:", error);
+  });
+
 
 export default initial;

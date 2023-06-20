@@ -5,8 +5,11 @@ import Products from "./components/Products";
 import Navbar from "./components/Navbar";
 import rootItems from "./rootItems";
 import ShoppingCart from "./components/ShoppingCart";
+import { useAuth, signIn } from "./components/SignIn";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, query, where, collection } from "firebase/firestore";
 
 function App() {
+  const auth = useAuth()
   const [cart, setCart] = useState([]);
   const [cartSize, setCartSize] = useState(0);
   const [total,setTotal] = useState(0);
@@ -28,7 +31,33 @@ function App() {
     if(cart.find(item => item.itemName === newItem.itemName)){
       addQuantity(cart.find(item => item.itemName === newItem.itemName));
     }
-    else setCart([...cart, newItem]);
+    else{
+      if (auth) {
+        const db = getFirestore();
+        const userCartRef = doc(db, "carts", auth.uid); 
+
+        getDoc(userCartRef)
+        .then((doc) => {
+          if (doc.exists()) {
+            console.log(query(collection(db, "carts"), where("qty", "==", "1")))
+            updateDoc(userCartRef, {
+              cart: arrayUnion(newItem),
+            });
+          }
+          else {
+            setDoc(userCartRef, {
+              cart: [newItem],
+            });
+          }
+        })
+        .catch((error) => {
+          console.log("Error retrieving user cart:", error);
+        });
+      }
+      else {
+       signIn();
+      }
+    };
   }
 
   const removecartItem = (oldItem) => {

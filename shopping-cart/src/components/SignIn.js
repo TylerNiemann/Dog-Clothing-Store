@@ -27,10 +27,6 @@ function SignIn(){
         signOut(getAuth());
     }
 
-    function isUserSignedIn() {
-        return !!getAuth().currentUser;
-    }
-
     function initFirebaseAuth() {
         onAuthStateChanged(getAuth(), SignInDisplay);
    }
@@ -79,4 +75,28 @@ function SignIn(){
 
 }
 
-export default SignIn;
+
+const useAuth = () => {
+    const [currentUser, setCurrentUser] = useState(null);
+  
+    useEffect(() => {
+      const auth = getAuth();
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        setCurrentUser(user);
+      });
+  
+      return () => {
+        unsubscribe();
+      };
+    }, []);
+  
+    return currentUser;
+  };
+
+  export async function signIn() {
+    let provider = new GoogleAuthProvider();
+    await signInWithPopup(getAuth(), provider);
+  }
+
+
+export { SignIn, useAuth};
