@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import rootItems from "./rootItems";
 import ShoppingCart from "./components/ShoppingCart";
 import { useAuth, signIn } from "./components/SignIn";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, onSnapshot } from "firebase/firestore";
 
 function App() {
   const auth = useAuth()
@@ -23,9 +23,21 @@ function App() {
   }
 
   useEffect(() => {
-    setCartSize(calculateLength(cart));
-    setTotal(calculateTotal(cart).toFixed(2));
- },[cart])
+    if(auth){
+        const db = getFirestore();
+        const userCartRef = doc(db, "carts", auth.uid); 
+        const unsubscribe = onSnapshot(userCartRef, (docSnapshot) => {
+          if (docSnapshot.exists()) {
+            setCart(docSnapshot.data().cart);
+            const total = calculateTotal(docSnapshot.data().cart).toFixed(2);
+            setTotal(total);
+            setCartSize(calculateLength(docSnapshot.data().cart));
+          }
+        });
+        
+        return () => unsubscribe();
+    }
+ }, [auth]);
 
   const addcartItem = (newItem) => {
       if (auth) {
@@ -54,9 +66,7 @@ function App() {
           console.log("Error retrieving user cart:", error);
         });
       }
-      else {
-       signIn();
-      }
+      else signIn();  
   }
 
   const removecartItem = (oldItem) => {
