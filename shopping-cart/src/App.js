@@ -40,9 +40,9 @@ function App() {
     }
   };
 
-  const removeItemFromCart = (itemName) => {
+  const removeItemFromCart = (item) => {
     if (auth) {
-      removeCartItem(auth.uid, itemName);
+      removeCartItem(auth.uid, item);
     }
   };
 

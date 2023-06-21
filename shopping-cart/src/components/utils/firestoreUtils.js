@@ -1,4 +1,4 @@
-import { getFirestore, doc, getDoc, setDoc, updateDoc, onSnapshot } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, onSnapshot, arrayRemove } from "firebase/firestore";
 
 export const getUserCartRef = (userId) => {
   const db = getFirestore();
@@ -27,17 +27,34 @@ export const addCartItem = async (userId, newItem) => {
   
   if (existingItem) {
     existingItem.qty += 1;
-  } else {
+  } 
+  else {
     cart.push(newItem);
   }
   
   await updateCartItem(userId, cart);
 };
 
-export const removeCartItem = async (userId, itemName) => {
+export const deleteCartItem = async (userId, removeItem) => {
+  const userCartRef = getUserCartRef(userId);
+  await updateDoc(userCartRef, {
+    cart: arrayRemove(removeItem)
+  });
+};
+
+export const removeCartItem = async (userId, removeItem) => {
   const cart = await getUserCart(userId);
-  const updatedCart = cart.filter((item) => item.itemName !== itemName);
-  await updateCartItem(userId, updatedCart);
+  const updatedCart = cart.map((item) => {
+      if (item.id === removeItem.id && item.qty > 1) {
+        return { ...item, qty: item.qty - 1 };
+      }
+      return item;
+  })
+  if (removeItem.qty === 1) {
+    await deleteCartItem(userId, removeItem);
+  } else {
+    await updateCartItem(userId, updatedCart);
+  }
 };
 
 export const onCartSnapshot = (userId, callback) => {
