@@ -77,7 +77,11 @@ function App() {
   }
 
   const emptyCart = () => {
-    setCart([]);
+    const db = getFirestore();
+    const userCartRef = doc(db, "carts", auth.uid); 
+    updateDoc(userCartRef, {
+      cart: [],
+    });
   }
 
   const addQuantity = (cart, newItem) => {
