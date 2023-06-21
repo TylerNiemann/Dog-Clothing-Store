@@ -10,15 +10,6 @@ function ShoppingCart({emptyCart,lower,total,cart}){
 
     const navigate = useNavigate();
 
-    const completeOrder = () =>{
-        if(cart.length === 0){
-            alert("Cart is empty")
-        }
-        else {
-            empty();
-            alert("Your Order is complete")
-        }
-    }
 
     return (
         <div id="cartProducts" >
@@ -31,7 +22,10 @@ function ShoppingCart({emptyCart,lower,total,cart}){
                 <button onClick={empty} >Empty Cart</button>
                 <button onClick={() => navigate("../components/Products")} > Continue Shopping</button>
             </div>
-            <button id="completeOrder" onClick={completeOrder} >Complete Order</button>
+            <form action="/create-checkout-session" method="POST">
+            <button id="completeOrder" type="submit" >Complete Order</button>
+            </form>
+            
         </div>
         
     )
