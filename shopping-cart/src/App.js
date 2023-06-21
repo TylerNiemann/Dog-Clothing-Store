@@ -6,98 +6,51 @@ import Navbar from "./components/Navbar";
 import rootItems from "./rootItems";
 import ShoppingCart from "./components/ShoppingCart";
 import { useAuth, signIn } from "./components/SignIn";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, onSnapshot } from "firebase/firestore";
+import { calculateTotal, calculateLength } from "./components/utils/cartUtils";
+import {
+  addCartItem,
+  removeCartItem,
+  setUserCart,
+  onCartSnapshot
+} from "./components/utils/firestoreUtils";
 
 function App() {
-  const auth = useAuth()
+  const auth = useAuth();
   const [cart, setCart] = useState([]);
   const [cartSize, setCartSize] = useState(0);
-  const [total,setTotal] = useState(0);
-
-  const calculateTotal = (cart) => {  
-    return cart.reduce((prev, curr) => prev + (curr.qty * curr.price),  0)
-  }
-
-  const calculateLength = (cart) => {
-    return cart.reduce((prev, curr) => prev + curr.qty,  0)
-  }
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    if(auth){
-        const db = getFirestore();
-        const userCartRef = doc(db, "carts", auth.uid); 
-        const unsubscribe = onSnapshot(userCartRef, (docSnapshot) => {
-          if (docSnapshot.exists()) {
-            setCart(docSnapshot.data().cart);
-            const total = calculateTotal(docSnapshot.data().cart).toFixed(2);
-            setTotal(total);
-            setCartSize(calculateLength(docSnapshot.data().cart));
-          }
-        });
-        
-        return () => unsubscribe();
-    }
- }, [auth]);
+    if (auth) {
+      const unsubscribe = onCartSnapshot(auth.uid, (cart) => {
+        setCart(cart);
+        setTotal(calculateTotal(cart).toFixed(2));
+        setCartSize(calculateLength(cart));
+      });
 
-  const addcartItem = (newItem) => {
-      if (auth) {
-        const db = getFirestore();
-        const userCartRef = doc(db, "carts", auth.uid); 
-        getDoc(userCartRef).then((doc) => {
-          if (doc.exists()) {
-            const cart = Object.values(doc.data().cart);
-            const updatedCart = addQuantity(cart, newItem);
-            if (updatedCart.some((product) => product.itemName === newItem.itemName)){
-              updateDoc(userCartRef, { cart: updatedCart })
-            }
-            else{
-                updateDoc(userCartRef, {
-                cart: arrayUnion(newItem),
-                });
-            }
-          }
-          else {
-            setDoc(userCartRef, {
-              cart: [newItem],
-            });
-          }
-        })
-        .catch((error) => {
-          console.log("Error retrieving user cart:", error);
-        });
-      }
-      else signIn();  
-  }
-
-  const removecartItem = (oldItem) => {
-    if((cart.find(item => item.itemName === oldItem.itemName).qty > 1)){
-     lowerQuantity(cart.find(item => item.itemName === oldItem.itemName))
+      return () => unsubscribe();
     }
-    else setCart(cart.filter(item => item.itemName !== oldItem.itemName));
-  }
+  }, [auth]);
+
+  const addItemToCart = (newItem) => {
+    if (auth) {
+      addCartItem(auth.uid, newItem);
+    } else {
+      signIn();
+    }
+  };
+
+  const removeItemFromCart = (itemName) => {
+    if (auth) {
+      removeCartItem(auth.uid, itemName);
+    }
+  };
 
   const emptyCart = () => {
-    const db = getFirestore();
-    const userCartRef = doc(db, "carts", auth.uid); 
-    updateDoc(userCartRef, {
-      cart: [],
-    });
-  }
-
-  const addQuantity = (cart, newItem) => {
-    return cart.map((product) => {
-      if (product.itemName === newItem.itemName) {
-        return { ...product, qty: product.qty + 1 };
-      }
-      return product;
-    });
-  }
-
-  const lowerQuantity = (index) => {
-    index.qty -= 1;
-    setTotal(calculateTotal(cart).toFixed(2));
-    setCartSize(calculateLength(cart));
-  }
+    if (auth) {
+      setUserCart(auth.uid, []);
+    }
+  };
 
   return (
     <HashRouter>
@@ -105,8 +58,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/components/Home"/>} />
       <Route path="/components/Home" element={<Home />} />
-      <Route path="/components/Products" element={<Products  addcartItem = {addcartItem}  items = {rootItems}/> }/>
-      <Route path="/components/ShoppingCart" element={<ShoppingCart emptyCart = {emptyCart}  lower = {removecartItem}  cart = {cart} total = {total} />} />
+      <Route path="/components/Products" element={<Products  addcartItem = {addItemToCart}  items = {rootItems}/> }/>
+      <Route path="/components/ShoppingCart" element={<ShoppingCart emptyCart = {emptyCart}  lower = {removeItemFromCart}  cart = {cart} total = {total} />} />
     </Routes>
   </HashRouter>
   );

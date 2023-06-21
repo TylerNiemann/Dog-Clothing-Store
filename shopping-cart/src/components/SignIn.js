@@ -25,6 +25,7 @@ function SignIn(){
 
     function signOutUser() {
         signOut(getAuth());
+        window.location.reload();
     }
 
     function initFirebaseAuth() {
