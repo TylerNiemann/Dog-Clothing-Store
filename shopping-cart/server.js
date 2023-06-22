@@ -1,25 +1,38 @@
-// This is your test secret API key.
-const stripe = require('stripe')('sk_test_51NLIPOI4GP87XcZTd18naiEcA9J9IPAM8SwYM8Huaz675bbT5YGxJR2oC6xO92s2FUYJHosrlFx21N1vLuvxI6t900LA1vkBcz');
+require('dotenv').config();
+const stripe = require('stripe')(process.env.STRIPE_API_KEY);
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+require('dotenv').config();
+
+
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const YOUR_DOMAIN = 'http://localhost:3000';
 
 app.post('/create-checkout-session', async (req, res) => {
+  const { total } = req.body;
+  const unitAmount = parseInt(total * 100);
+
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
-        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-        price: 'price_1NLTPAI4GP87XcZTGEyofu9j',
+        price_data: {
+          currency: "usd",
+          unit_amount: unitAmount,
+          product_data:{
+            name: "Total",
+          },
+        },
         quantity: 1,
       },
     ],
     mode: 'payment',
-    success_url: `${YOUR_DOMAIN}?success=true`,
-    cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+    success_url: `${YOUR_DOMAIN}/Shopping-cart#/components/Success`,
+    cancel_url: `${YOUR_DOMAIN}/Shopping-cart#/components/ShoppingCart`,
+    automatic_tax: {enabled: true},
   });
-
   res.redirect(303, session.url);
 });
 

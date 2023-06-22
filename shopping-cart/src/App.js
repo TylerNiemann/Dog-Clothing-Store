@@ -5,6 +5,7 @@ import Products from "./components/Products";
 import Navbar from "./components/Navbar";
 import rootItems from "./rootItems";
 import ShoppingCart from "./components/ShoppingCart";
+import Success from "./components/Success"
 import { useAuth, signIn } from "./components/SignIn";
 import { calculateTotal, calculateLength } from "./components/utils/cartUtils";
 import {
@@ -60,6 +61,7 @@ function App() {
       <Route path="/components/Home" element={<Home />} />
       <Route path="/components/Products" element={<Products  addcartItem = {addItemToCart}  items = {rootItems}/> }/>
       <Route path="/components/ShoppingCart" element={<ShoppingCart emptyCart = {emptyCart}  lower = {removeItemFromCart}  cart = {cart} total = {total} />} />
+      <Route path="/components/Success" element={<Success emptyCart = {emptyCart} />} />
     </Routes>
   </HashRouter>
   );
