@@ -3,7 +3,6 @@ const stripe = require('stripe')(process.env.STRIPE_API_KEY);
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-require('dotenv').config();
 
 
 app.use(express.static('public'));
@@ -11,23 +10,28 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const YOUR_DOMAIN = 'http://localhost:3000';
 
+const generateLineItems = (array) => {
+  const lineItems = array.map((item) => {
+    return {
+      price_data: {
+        currency: 'usd',
+        unit_amount: parseInt(item.price * 100),
+        product_data: {
+          name: item.itemName,
+        },
+      },
+      quantity: item.qty || 1,
+    };
+  });
+
+  return lineItems;
+};
+
 app.post('/create-checkout-session', async (req, res) => {
-  const { total } = req.body;
-  const unitAmount = parseInt(total * 100);
+  const cart = JSON.parse(req.body.cart);
 
   const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
-        price_data: {
-          currency: "usd",
-          unit_amount: unitAmount,
-          product_data:{
-            name: "Total",
-          },
-        },
-        quantity: 1,
-      },
-    ],
+   line_items: generateLineItems(cart),
     mode: 'payment',
     success_url: `${YOUR_DOMAIN}/Shopping-cart#/components/Success`,
     cancel_url: `${YOUR_DOMAIN}/Shopping-cart#/components/ShoppingCart`,

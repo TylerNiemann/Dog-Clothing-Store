@@ -20,7 +20,7 @@ function ShoppingCart({ emptyCart, lower, total, cart }) {
         </button>
       </div>
       <form action="/create-checkout-session" method="POST">
-        <input type="hidden" name="total" value={total} />
+        <input type="hidden" name="cart" value={JSON.stringify(cart)} />
         <button id="completeOrder" type="submit">
           Complete Order
         </button>
