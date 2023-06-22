@@ -19,7 +19,7 @@ function ShoppingCart({ emptyCart, lower, total, cart }) {
           Continue Shopping
         </button>
       </div>
-      <form action="/create-checkout-session" method="POST">
+      <form action="https://us-central1-web-store-6ff8b.cloudfunctions.net/app/create-checkout-session/" method="POST">
         <input type="hidden" name="cart" value={JSON.stringify(cart)} />
         <button id="completeOrder" type="submit">
           Complete Order

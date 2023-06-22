@@ -1,12 +1,14 @@
 require('dotenv').config();
-const stripe = require('stripe')(process.env.STRIPE_API_KEY);
+const functions = require("firebase-functions")
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-
+const stripe = require('stripe')(functions.config().stripe.api_key);
+const cors = require('cors');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 const YOUR_DOMAIN = 'https://web-store-6ff8b.web.app/';
 
@@ -28,7 +30,12 @@ const generateLineItems = (array) => {
 };
 
 app.post('/create-checkout-session', async (req, res) => {
-  const cart = JSON.parse(req.body.cart);
+    try {
+        const cart = JSON.parse();
+    }
+    catch (error) {
+        console.log('Error parsing JSON:', error, data);
+    }
 
   const session = await stripe.checkout.sessions.create({
    line_items: generateLineItems(cart),
@@ -40,4 +47,4 @@ app.post('/create-checkout-session', async (req, res) => {
   res.redirect(303, session.url);
 });
 
-app.listen(4242, () => console.log('Running on port 4242'));
+exports.app = functions.https.onRequest(app);
