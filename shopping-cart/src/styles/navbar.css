@@ -1,34 +1,72 @@
-*{
+* {
     margin: 0;
-}
-#navbar{
+  }
+  
+  #navbar {
     display: flex;
     padding: 50px;
     gap: 300px;
     justify-content: center;
     background-color: turquoise;
-}
-#navbar > .link{
-    font-size: 40px; 
+  }
+  
+  #navbar > .link {
+    font-size: 40px;
     color: white;
     text-decoration: none;
-}
-#navbar > .link:hover{
+  }
+  
+  #navbar > .link:hover {
     color: grey;
-}
-.SignInBlock{
+  }
+  
+  .SignInBlock {
     color: white;
     display: flex;
-}
-#ProfilePic{
+  }
+  
+  #ProfilePic {
     height: 30px;
     width: 30px;
     margin-right: 20px;
-}
-.Sign{
+  }
+  
+  .Sign {
     background-color: turquoise;
     border: none;
-}
-#In{
+  }
+  
+  #In {
     font-size: 25px;
-}
+  }
+  
+  /* Media Query for Mobile Devices */
+  @media (max-width: 600px) {
+    #navbar {
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+      align-items: center;
+    }
+  
+    #navbar > .link {
+      font-size: 25px;
+      text-align: center;
+    }
+  
+    .SignInBlock {
+      flex-direction: column;
+    }
+  
+    #ProfilePic {
+      height: 20px;
+      width: 20px;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    #In {
+      font-size: 20px;
+    }
+  }
+  

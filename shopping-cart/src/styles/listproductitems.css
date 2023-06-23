@@ -1,66 +1,77 @@
-button{
+button {
     font-size: 15px;
     background-color: black;
     color: white;
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
-}
-button:hover{
+  }
+  
+  button:hover {
     background-color: grey;
-}
-
-#products{
+  }
+  
+  #products {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 30px;
-}
-#cartProducts{
+  }
+  
+  #cartProducts {
     display: flex;
     flex-direction: column;
-    padding: 500px;
-    padding-top: 50px;
-}
-#cartProducts>h1{
-    margin-left: 30%;
-}
-.product{
-    display: flex;
     padding: 30px;
-    border: 1px solid black;   
-    margin: 20px   
-}
-.product>img{
+  }
+  
+  #cartProducts > h1 {
+    margin-left: 30%;
+  }
+  
+  .product {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    border: 1px solid black;
+    margin: 20px;
+  }
+  
+  .product > img {
     width: 150px;
     height: 150px;
-}
-.productInfo{
+  }
+  
+  .productInfo {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 20px;
-}
-.productPrice{
+  }
+  
+  .productPrice {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 160px;
-}
-.removeButton{
+  }
+  
+  .removeButton {
     width: 160px;
-}
-#buttonContainer{
+  }
+  
+  #buttonContainer {
     display: flex;
     justify-content: space-between;
     width: 300px;
     margin-left: 150px;
-}
-#buttonContainer>button{
+  }
+  
+  #buttonContainer > button {
     width: 100px;
-}
-#home{
+  }
+  
+  #home {
     background-image: url(../components/images/background-wave.png);
-    background-size:  cover;
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -69,14 +80,55 @@ button:hover{
     margin-top: 50px;
     gap: 20px;
     color: turquoise;
-}
-#home>img{
+  }
+  
+  #home > img {
     width: 500px;
     height: 500px;
-}
-#completeOrder{
+  }
+  
+  #completeOrder {
     margin: 30px;
     width: 200px;
     padding: 20px;
     margin-left: 200px;
-}
+  }
+  
+  /* Media Query for Mobile Devices */
+  @media (max-width: 600px) {
+    #products {
+      grid-template-columns: 1fr;
+    }
+  
+    #cartProducts {
+      padding: 30px 15px;
+    }
+  
+    .product {
+      flex-direction: column;
+      padding: 15px;
+    }
+  
+    .product > img {
+      width: 100%;
+      height: auto;
+    }
+  
+    #buttonContainer {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    #buttonContainer > button {
+      width: 150px;
+      margin-top: 10px;
+    }
+  
+    #completeOrder {
+      width: 100%;
+      margin: 20px 0;
+      margin-left: 0;
+    }
+  }
