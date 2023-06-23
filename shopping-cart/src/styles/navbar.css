@@ -24,16 +24,17 @@
     color: white;
     display: flex;
   }
-  
-  #ProfilePic {
-    height: 30px;
-    width: 30px;
-    margin-right: 20px;
+
+  #UserName {
+    position: relative;
+    text-align: center;
   }
   
   .Sign {
     background-color: turquoise;
     border: none;
+    display: block;
+    margin: 0 auto;
   }
   
   #In {
@@ -58,13 +59,10 @@
       flex-direction: column;
     }
   
-    #ProfilePic {
-      height: 20px;
-      width: 20px;
-      margin-right: 0;
-      margin-bottom: 10px;
-    }
-  
+    .Sign {
+        max-width: 80%; 
+      }
+
     #In {
       font-size: 20px;
     }

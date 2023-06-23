@@ -64,9 +64,8 @@ function SignIn(){
     else if(loginStatus === 'LoggedIn'){
         return(
              <div className="SignInBlock" >
-                <img id="ProfilePic" src={getAuth().currentUser.photoURL || '/images/profile_placeholder.png'} alt="ProfilePic" ></img>
                 <div id="UserName">
-                  <h4>{getAuth().currentUser.displayName}</h4>
+                  <h4 style={{ color: 'White', fontWeight: "bold", fontSize:"25px" }} >{getAuth().currentUser.displayName.toUpperCase()}</h4>
                   <button className="Sign" onClick={signOutUser}>Sign Out</button>
                 </div>  
             </div>
