@@ -31,10 +31,10 @@ const generateLineItems = (array) => {
 
 app.post('/create-checkout-session', async (req, res) => {
     try {
-        const cart = JSON.parse();
+        cart = JSON.parse(req.body.cart);
     }
     catch (error) {
-        console.log('Error parsing JSON:', error, data);
+        console.log('Error parsing JSON:', error, cart);
     }
 
   const session = await stripe.checkout.sessions.create({
