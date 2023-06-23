@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { HashRouter, Routes, Route ,Navigate } from "react-router-dom";
 import Home from "./components/Home";
 import Products from "./components/Products";
+import ProductDetail from "./components/ProductDetail"
 import Navbar from "./components/Navbar";
 import rootItems from "./rootItems";
 import ShoppingCart from "./components/ShoppingCart";
@@ -60,6 +61,7 @@ function App() {
       <Route path="/" element={<Navigate to="/components/Home"/>} />
       <Route path="/components/Home" element={<Home />} />
       <Route path="/components/Products" element={<Products  addcartItem = {addItemToCart}  items = {rootItems}/> }/>
+      <Route path="/components/Products/:index" element={<ProductDetail  addcartItem = {addItemToCart}  items = {rootItems}/> }/>
       <Route path="/components/ShoppingCart" element={<ShoppingCart emptyCart = {emptyCart}  lower = {removeItemFromCart}  cart = {cart} total = {total} />} />
       <Route path="/components/Success" element={<Success emptyCart = {emptyCart} />} />
     </Routes>
