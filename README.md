@@ -6,7 +6,7 @@ Welcome to the E-commerce Dog Clothing Platform! This platform is designed to pr
 
 with user authentication, a fully functional shopping cart, and secure payment processing using Stripe. 
 
-The project is built using React, Node.js, Firestore, and hosted on Firebase.
+The project is built using React, Node.js, Express, Firestore, and hosted on Firebase.
 
 ## Features
 
@@ -47,6 +47,8 @@ Stripe: Payment processing API for secure and seamless transactions.
 Back-end:
 
 Node.js: JavaScript runtime for server-side development.
+
+Express: Web application framework for building robust and scalable server-side applications.
 
 Firestore: NoSQL document database for storing product information, user data, and cart details.
 
