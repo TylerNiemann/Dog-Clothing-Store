@@ -39,7 +39,6 @@ button:hover {
 
 .product {
   display: flex;
-  flex-wrap: wrap;
   padding: 30px;
   border: 1px solid black;
   margin: 10px;
