@@ -20,6 +20,16 @@ Firestore integration: The platform uses Firestore as the database to store prod
 
 Responsive UI: The platform is designed to provide a seamless experience on both desktop and mobile devices.
 
+## Screenshots
+
+![Home](shopping-cart/public/E-home.PNG)
+![List top](shopping-cart/public/e-ptop.PNG)
+![List bot](shopping-cart/public/pbot.PNG)
+![detail](shopping-cart/public/pdet.PNG)
+![cart](shopping-cart/public/pcart.PNG)
+![payment](shopping-cart/public/paymet.PNG)
+![success](shopping-cart/public/success.PNG)
+
 ## Getting Started
 
 To access the E-commerce Platform, simply visit the following domain: https://web-store-6ff8b.web.app/
