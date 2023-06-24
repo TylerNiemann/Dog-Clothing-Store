@@ -18,6 +18,7 @@ const Products = ({ items, addcartItem }) => {
   };
 
   return (
+    
     <div id="products">
       {currentItems.map((item, index) => (
         <ListProductItem

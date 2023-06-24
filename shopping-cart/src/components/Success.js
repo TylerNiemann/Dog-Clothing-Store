@@ -10,6 +10,8 @@ const Success = ({emptyCart}) => {
     return (
       <div id="success" >
        <h1>Success!</h1>
+       <p>Your payment has been successfully processed.</p>
+       <p>Thank you for your purchase!</p>
       </div>
     );
   };
