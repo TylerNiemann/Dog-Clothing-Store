@@ -21,15 +21,18 @@ export const updateCartItem = async (userId, updatedCart) => {
   await updateDoc(userCartRef, { cart: updatedCart });
 };
 
-export const addCartItem = async (userId, newItem) => {
+export const addCartItem = async (userId, newItem, quantity) => {
   const cart = await getUserCart(userId);
   const existingItem = cart.find((product) => product.itemName === newItem.itemName);
-  
   if (existingItem) {
-    existingItem.qty += 1;
+    existingItem.qty += quantity;
   } 
   else {
-    cart.push(newItem);
+    const { description, ...itemWithoutDescription } = newItem;
+    if(quantity >= 1){
+      itemWithoutDescription.qty = quantity
+      cart.push(itemWithoutDescription);
+    } 
   }
   
   await updateCartItem(userId, cart);

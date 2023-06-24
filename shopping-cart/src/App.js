@@ -13,7 +13,8 @@ import {
   addCartItem,
   removeCartItem,
   setUserCart,
-  onCartSnapshot
+  onCartSnapshot,
+  deleteCartItem
 } from "./components/utils/firestoreUtils";
 
 function App() {
@@ -34,9 +35,9 @@ function App() {
     }
   }, [auth]);
 
-  const addItemToCart = (newItem) => {
+  const addItemToCart = (newItem, quantity) => {
     if (auth) {
-      addCartItem(auth.uid, newItem);
+      addCartItem(auth.uid, newItem, quantity);
     } else {
       signIn();
     }
@@ -47,6 +48,13 @@ function App() {
       removeCartItem(auth.uid, item);
     }
   };
+
+  const deleteItemFromCart = (item) => {
+    if (auth) {
+      deleteCartItem(auth.uid, item);
+    }
+  };
+
 
   const emptyCart = () => {
     if (auth) {
@@ -62,7 +70,7 @@ function App() {
       <Route path="/components/Home" element={<Home />} />
       <Route path="/components/Products" element={<Products  addcartItem = {addItemToCart}  items = {rootItems}/> }/>
       <Route path="/components/Products/:index" element={<ProductDetail  addcartItem = {addItemToCart}  items = {rootItems}/> }/>
-      <Route path="/components/ShoppingCart" element={<ShoppingCart emptyCart = {emptyCart}  lower = {removeItemFromCart}  cart = {cart} total = {total} />} />
+      <Route path="/components/ShoppingCart" element={<ShoppingCart emptyCart = {emptyCart}  lower = {removeItemFromCart}  remove = {deleteItemFromCart} cart = {cart} total = {total} />} />
       <Route path="/components/Success" element={<Success emptyCart = {emptyCart} />} />
     </Routes>
   </HashRouter>

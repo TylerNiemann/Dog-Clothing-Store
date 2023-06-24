@@ -16,6 +16,7 @@ const rootItems = [
       description: `Keep your pup cozy and fashionable with this Woof Hoodie. It's not just 
       a hoodie; it's a statement! Let your dog proudly display their love for woofs with 
       this adorable and comfortable piece of clothing.`,
+      
     },
     {
       id: 'beige-t-shirt',
@@ -126,6 +127,7 @@ const rootItems = [
       description: `Effortlessly stylish and versatile, this grey hoodie is a timeless 
       addition to your pup's fashion collection. Whether paired with other colorful 
       accessories or worn on its own, it's a classic choice that never goes out of style.`,
+
     },
   ];
 

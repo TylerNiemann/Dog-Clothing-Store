@@ -3,14 +3,14 @@ import ListCartItem from "./ListCartItem";
 import "../styles/listproductitems.css";
 import { useNavigate } from "react-router-dom";
 
-function ShoppingCart({ emptyCart, lower, total, cart }) {
+function ShoppingCart({ emptyCart, lower, remove ,total, cart }) {
   const empty = () => emptyCart();
   const navigate = useNavigate();
 
   return (
     <div id="cartProducts">
       {cart.map((item) => (
-        <ListCartItem lower={lower} key={item.id} {...item} />
+        <ListCartItem lower={lower} remove = {remove} key={item.id} {...item} />
       ))}
       <h1>Total: ${total}</h1>
       <div id="buttonContainer">

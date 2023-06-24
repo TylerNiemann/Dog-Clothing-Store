@@ -26,9 +26,11 @@ button:hover {
   max-width: 500px;
 }
 #cartProducts {
+  margin-left: 600px;
   display: flex;
   flex-direction: column;
   padding: 30px;
+  max-width: 600px;
 }
 
 #cartProducts > h1 {
@@ -43,11 +45,29 @@ button:hover {
   margin: 10px;
 }
 
+.detailContainer{
+-moz-box-align: center;
+align-items: center;
+display: flex;
+-moz-box-pack: center;
+justify-content: center;
+min-height: calc(-110px + 100vh);
+padding: 32px;
+width: 100%;
+}
+
 .productDetail {
+  align-items: flex-start;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+}
+
+.detail > h2 {
+  font-size: 3rem;
+}
+
+.detailPrice{
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .product > img {
@@ -57,15 +77,18 @@ button:hover {
 
 .detail {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
+flex-direction: column;
+-moz-box-pack: justify;
+justify-content: space-between;
+margin-right: -32px;
+max-width: 400px;
+min-height: 490px;
 }
 
 .productDetail > img {
   padding-top: 30px;
   max-width: 400px;
-  margin-right: 20px; 
+  margin-right: 100px; 
 }
 
 .productInfo {
@@ -80,6 +103,11 @@ button:hover {
   flex-direction: row;
   justify-content: space-between;
   width: 160px;
+}
+
+.productPrice > h3{
+  padding-top: 30px;
+  font-size: 2rem;
 }
 
 .removeButton {
@@ -122,13 +150,32 @@ button:hover {
   margin-left: 200px;
 }
 
-#products a:hover{
+#products a:hover, .detail a:hover{
   color:grey
 }
-#products a {
+#products a, .detail a {
   font-size: 32px;
   color: black;
   text-decoration: none;
+}
+
+.detailButton{
+  max-width: 150px;
+}
+
+.addQuantity{
+  margin-left: 30px;
+}
+.addQuantity > button{
+  margin: 10px;
+  padding: 5px;
+  width: 130px;
+}
+
+.cartButtons{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .active {
@@ -146,11 +193,23 @@ button:hover {
     padding: 30px 15px;
   }
 
-  .productDetail {
+  .detailContainer{
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    min-height: calc(100vh - 60px);
+    opacity: 1;
+    padding-left: 0;
+    transition: 0.75s;
+    width: 100%;
+    will-change: transform;
+  }
+
+  .productDetail {
+    padding-left: 20px;
+    flex-direction: column;
+    position: relative;
   }
 
   .productDetail > img {
@@ -174,8 +233,9 @@ button:hover {
   }
 
   .detail {
-    padding-top: 10px;
-    margin-left: 20px;
+    gap: 10px;
+    padding: 16px 16px;
+    max-width: 300px;
   }
 
   #buttonContainer {
