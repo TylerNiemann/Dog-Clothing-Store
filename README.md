@@ -1,8 +1,8 @@
 Check it out at https://web-store-6ff8b.web.app/
 
-## E-commerce Platform
+## Dog Clothing Store
 
-Welcome to the E-commerce Platform! This platform is designed to provide a seamless shopping experience for users, 
+Welcome to the E-commerce Dog Clothing Platform! This platform is designed to provide a seamless shopping experience for users, 
 
 with user authentication, a fully functional shopping cart, and secure payment processing using Stripe. 
 
