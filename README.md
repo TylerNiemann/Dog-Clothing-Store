@@ -81,11 +81,9 @@ Firebase Emulator Suite: A local development tool that allows you to run Firebas
 
 write and run tests against these emulators.
 
-The tests cover different components and functionalities of the platform, including user authentication, shopping cart functionality, 
+The tests cover different components and functionalities of the platform. They are designed to validate the expected behavior and 
 
-and payment processing. They are designed to validate the expected behavior and ensure that any changes or updates to the 
-
-codebase do not introduce regressions.
+ensure that any changes or updates to the codebase do not introduce regressions.
 
 ## Contributing
 
