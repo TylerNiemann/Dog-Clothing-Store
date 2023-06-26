@@ -67,24 +67,6 @@ Hosting:
 
 Firebase Hosting: Hosting platform for deploying and serving the front-end and back-end of the application.
 
-## Testing
-
-The E-commerce Platform includes unit and integration tests to ensure the reliability and correctness of the code. 
-
-The tests are implemented using the following technologies:
-
-Mocha: A JavaScript test framework that provides a clean and simple interface for organizing and running tests.
-
-Chai: A versatile assertion library that provides various styles and assertions to make the tests more expressive and readable.
-
-Firebase Emulator Suite: A local development tool that allows you to run Firebase services in an emulated environment, enabling you to
-
-write and run tests against these emulators.
-
-The tests cover different components and functionalities of the platform. They are designed to validate the expected behavior and 
-
-ensure that any changes or updates to the codebase do not introduce regressions.
-
 ## Contributing
 
 Contributions to the E-commerce Platform are welcome! If you find any issues or have suggestions for improvements, 
