@@ -7,8 +7,10 @@ service cloud.firestore {
       allow request;
       allow update: if false;
     }
+
      match /carts/{userId} {
       allow read, write: if request.auth.uid == userId;
+      
     }
   }
 }

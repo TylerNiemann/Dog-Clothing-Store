@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp} from "firebase/app";
-import { getFirestore, collection, getDocs, doc, setDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, setDoc, connectFirestoreEmulator } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,6 +18,8 @@ const firebaseConfig = {
 const initial = initializeApp(firebaseConfig);
 
 const db = getFirestore(initial);
+//connectFirestoreEmulator(db, 'localhost', 8080)
+
 
 const cartsCollectionRef = collection(db, "carts");
 

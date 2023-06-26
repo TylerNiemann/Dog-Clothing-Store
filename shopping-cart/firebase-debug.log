@@ -1,0 +1,121 @@
+[debug] [2023-06-26T01:18:07.833Z] ----------------------------------------------------------------------
+[debug] [2023-06-26T01:18:07.835Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:exec npm run test
+[debug] [2023-06-26T01:18:07.835Z] CLI Version:   12.4.0
+[debug] [2023-06-26T01:18:07.836Z] Platform:      win32
+[debug] [2023-06-26T01:18:07.836Z] Node Version:  v18.16.0
+[debug] [2023-06-26T01:18:07.836Z] Time:          Sun Jun 25 2023 18:18:07 GMT-0700 (Pacific Daylight Time)
+[debug] [2023-06-26T01:18:07.836Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-06-26T01:18:07.920Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-06-26T01:18:07.920Z] > authorizing via signed-in user (tntman98@gmail.com)
+[debug] [2023-06-26T01:18:08.014Z] java version "11.0.19" 2023-04-18 LTS
+
+[debug] [2023-06-26T01:18:08.015Z] Java(TM) SE Runtime Environment 18.9 (build 11.0.19+9-LTS-224)
+Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.19+9-LTS-224, mixed mode)
+
+[debug] [2023-06-26T01:18:08.038Z] Parsed Java major version: 11
+[info] i  emulators: Starting emulators: auth, functions, firestore, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, hosting"}}
+[debug] [2023-06-26T01:18:08.048Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-06-26T01:18:08.048Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-06-26T01:18:08.048Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-06-26T01:18:08.048Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-06-26T01:18:08.048Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-06-26T01:18:08.049Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-06-26T01:18:08.061Z] [hub] writing locator at C:\Users\tntma\AppData\Local\Temp\hub-web-store-6ff8b.json
+[debug] [2023-06-26T01:18:08.069Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-06-26T01:18:08.069Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-06-26T01:18:08.069Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: database, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mdatabase, pubsub, storage\u001b[22m"}}
+[debug] [2023-06-26T01:18:08.073Z] defaultcredentials: writing to file C:\Users\tntma\AppData\Roaming\firebase\tntman98_gmail_com_application_default_credentials.json
+[debug] [2023-06-26T01:18:08.074Z] Setting GAC to C:\Users\tntma\AppData\Roaming\firebase\tntman98_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\tntma\\AppData\\Roaming\\firebase\\tntman98_gmail_com_application_default_credentials.json"}}
+[debug] [2023-06-26T01:18:08.076Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/web-store-6ff8b/adminSdkConfig [none]
+[debug] [2023-06-26T01:18:08.347Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/web-store-6ff8b/adminSdkConfig 200
+[debug] [2023-06-26T01:18:08.347Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/web-store-6ff8b/adminSdkConfig {"projectId":"web-store-6ff8b","databaseURL":"https://web-store-6ff8b-default-rtdb.firebaseio.com","storageBucket":"web-store-6ff8b.appspot.com","locationId":"us-central"}
+[debug] [2023-06-26T01:18:08.363Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-06-26T01:18:08.363Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2023-06-26T01:18:08.363Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\tntma\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.17.4.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","web-store-6ff8b","--rules","C:\\Users\\tntma\\personal-projects\\Dog-Clothing-Store\\shopping-cart\\firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\tntma\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.17.4.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"web-store-6ff8b\",\"--rules\",\"C:\\\\Users\\\\tntma\\\\personal-projects\\\\Dog-Clothing-Store\\\\shopping-cart\\\\firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2023-06-26T01:18:14.114Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/web-store-6ff8b/sites 
+[debug] [2023-06-26T01:18:14.642Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/web-store-6ff8b/sites 200
+[debug] [2023-06-26T01:18:14.642Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/web-store-6ff8b/sites {"sites":[{"name":"projects/web-store-6ff8b/sites/web-store-6ff8b","defaultUrl":"https://web-store-6ff8b.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-06-26T01:18:14.642Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/web-store-6ff8b/webApps/-/config [none]
+[debug] [2023-06-26T01:18:15.186Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/web-store-6ff8b/webApps/-/config 200
+[debug] [2023-06-26T01:18:15.186Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/web-store-6ff8b/webApps/-/config {"projectId":"web-store-6ff8b","appId":"1:2927275070:web:9751a27ac4a9f66337f56f","databaseURL":"https://web-store-6ff8b-default-rtdb.firebaseio.com","storageBucket":"web-store-6ff8b.appspot.com","locationId":"us-central","apiKey":"AIzaSyDXOBDnig1ibm_ukclEbax_ifSe64QR47o","authDomain":"web-store-6ff8b.firebaseapp.com","messagingSenderId":"2927275070"}
+[debug] [2023-06-26T01:18:15.190Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/web-store-6ff8b [none]
+[debug] [2023-06-26T01:18:15.530Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/web-store-6ff8b 200
+[debug] [2023-06-26T01:18:15.530Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/web-store-6ff8b {"projectId":"web-store-6ff8b","projectNumber":"2927275070","displayName":"Web Store","name":"projects/web-store-6ff8b","resources":{"hostingSite":"web-store-6ff8b","realtimeDatabaseInstance":"web-store-6ff8b-default-rtdb","storageBucket":"web-store-6ff8b.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_2e1f12e2-b57f-4a31-b72b-1a0b0f63b9b6"}
+[debug] [2023-06-26T01:18:15.531Z] Specified "public" directory "build" does not exist; Deploy to Hosting site "web-store-6ff8b" may fail or be empty.
+[info] i  hosting[web-store-6ff8b]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting[web-store-6ff8b]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[info] i  functions: Watching "C:\Users\tntma\personal-projects\Dog-Clothing-Store\shopping-cart\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\tntma\\personal-projects\\Dog-Clothing-Store\\shopping-cart\\functions\" for Cloud Functions..."}}
+[debug] [2023-06-26T01:18:15.549Z] Validating nodejs source
+[warn] !  functions: Couldn't find firebase-functions package in your source code. Have you run 'npm install'? 
+[debug] [2023-06-26T01:18:15.550Z] getFunctionsSDKVersion encountered error: Cannot find module 'firebase-functions'
+Require stack:
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\versioning.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\index.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\index.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\gcp\cloudfunctions.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\backend.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorShared.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\controller.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\commandUtils.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\database-get.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\index.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\index.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js {"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\functions\\runtimes\\node\\versioning.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\functions\\runtimes\\node\\index.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\functions\\runtimes\\index.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\gcp\\cloudfunctions.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\functions\\backend.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\emulator\\functionsEmulatorShared.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\emulator\\functionsEmulator.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\emulator\\controller.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\emulator\\commandUtils.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\commands\\database-get.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\commands\\index.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\index.js","C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\bin\\firebase.js"]}
+[debug] [2023-06-26T01:18:15.550Z] checkFunctionsSDKVersion encountered error: Invalid Version:  {}
+[debug] [2023-06-26T01:18:15.551Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "stripe": "^12.10.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-06-26T01:18:15.551Z] Building nodejs source
+[debug] [2023-06-26T01:18:15.551Z] Failed to find version of module node: reached end of search path C:\Users\tntma\personal-projects\Dog-Clothing-Store\shopping-cart\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2023-06-26T01:18:15.552Z] Could not parse firebase-functions version '' into semver. Falling back to parseTriggers.
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Error parsing triggers: Cannot find module 'firebase-functions'
+Require stack:
+- C:\Users\tntma\personal-projects\Dog-Clothing-Store\shopping-cart\functions\index.js
+- C:\Users\tntma\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\triggerParser.js
+
+Try running "npm install" in your functions directory before deploying. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Error parsing triggers: Cannot find module 'firebase-functions'\nRequire stack:\n- C:\\Users\\tntma\\personal-projects\\Dog-Clothing-Store\\shopping-cart\\functions\\index.js\n- C:\\Users\\tntma\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\functions\\runtimes\\node\\triggerParser.js\n\nTry running \"npm install\" in your functions directory before deploying."}}
+[info] i  Running script: npm run test 
+[debug] [2023-06-26T01:18:15.611Z] Running npm run test with environment {"ACSvcPort":"17532","ALLUSERSPROFILE":"C:\\ProgramData","APPDATA":"C:\\Users\\tntma\\AppData\\Roaming","ChocolateyInstall":"C:\\ProgramData\\chocolatey","ChocolateyLastPathUpdate":"133317126212378506","CommonProgramFiles":"C:\\Program Files\\Common Files","CommonProgramFiles(x86)":"C:\\Program Files (x86)\\Common Files","CommonProgramW6432":"C:\\Program Files\\Common Files","COMPUTERNAME":"LAPTOP-7NBCLUGQ","ComSpec":"C:\\Windows\\system32\\cmd.exe","DriverData":"C:\\Windows\\System32\\Drivers\\DriverData","HOME":"C:\\Users\\tntma","HOMEDRIVE":"C:","HOMEPATH":"\\Users\\tntma","IS_FIREBASE_CLI":"true","JAVA_HOME":"C:\\Program Files\\Java\\jdk-11","LOCALAPPDATA":"C:\\Users\\tntma\\AppData\\Local","LOGONSERVER":"\\\\LAPTOP-7NBCLUGQ","NUMBER_OF_PROCESSORS":"16","OneDrive":"C:\\Users\\tntma\\OneDrive","OneDriveConsumer":"C:\\Users\\tntma\\OneDrive","OS":"Windows_NT","Path":"C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\Python311\\Scripts\\;C:\\Python311\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\chocolatey\\bin;C:\\Users\\tntma\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\tntma\\.dotnet\\tools;C:\\Users\\tntma\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\tntma\\AppData\\Roaming\\npm","PATHEXT":".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW;.CPL","PROCESSOR_ARCHITECTURE":"AMD64","PROCESSOR_IDENTIFIER":"AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD","PROCESSOR_LEVEL":"25","PROCESSOR_REVISION":"5000","ProgramData":"C:\\ProgramData","ProgramFiles":"C:\\Program Files","ProgramFiles(x86)":"C:\\Program Files (x86)","ProgramW6432":"C:\\Program Files","PSModulePath":"C:\\Users\\tntma\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules","PUBLIC":"C:\\Users\\Public","RlsSvcPort":"22112","SystemDrive":"C:","SystemRoot":"C:\\Windows","TEMP":"C:\\Users\\tntma\\AppData\\Local\\Temp","TMP":"C:\\Users\\tntma\\AppData\\Local\\Temp","USERDOMAIN":"LAPTOP-7NBCLUGQ","USERDOMAIN_ROAMINGPROFILE":"LAPTOP-7NBCLUGQ","USERNAME":"tntma","USERPROFILE":"C:\\Users\\tntma","VBOX_MSI_INSTALL_PATH":"C:\\Program Files\\Oracle\\VirtualBox\\","windir":"C:\\Windows","WSLENV":"WT_SESSION::WT_PROFILE_ID","WT_PROFILE_ID":"{61c54bbd-c2c6-5271-96e7-009a87ff44bf}","WT_SESSION":"d377b6d0-7423-427c-a7bc-66b05061aff2","GCLOUD_PROJECT":"web-store-6ff8b","FIREBASE_CONFIG":"{\"projectId\":\"web-store-6ff8b\",\"storageBucket\":\"web-store-6ff8b.appspot.com\",\"databaseURL\":\"https://web-store-6ff8b.firebaseio.com\"}","FIREBASE_EMULATOR_HUB":"127.0.0.1:4400","FIREBASE_AUTH_EMULATOR_HOST":"127.0.0.1:9099","FIRESTORE_EMULATOR_HOST":"127.0.0.1:8080","FIREBASE_FIRESTORE_EMULATOR_ADDRESS":"127.0.0.1:8080","CLOUD_EVENTARC_EMULATOR_HOST":"http://127.0.0.1:9299"}
+[warn] !  Script exited unsuccessfully (code 3) 
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  functions: Stopping Functions Emulator {"metadata":{"emulator":{"name":"functions"},"message":"Stopping Functions Emulator"}}
+[info] i  hosting: Stopping Hosting Emulator {"metadata":{"emulator":{"name":"hosting"},"message":"Stopping Hosting Emulator"}}
+[info] i  firestore: Stopping Firestore Emulator {"metadata":{"emulator":{"name":"firestore"},"message":"Stopping Firestore Emulator"}}
+[warn] !  Firestore Emulator has exited upon receiving signal: SIGINT 
+[info] i  auth: Stopping Authentication Emulator {"metadata":{"emulator":{"name":"auth"},"message":"Stopping Authentication Emulator"}}
+[info] i  eventarc: Stopping Eventarc Emulator {"metadata":{"emulator":{"name":"eventarc"},"message":"Stopping Eventarc Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[info] i  logging: Stopping Logging Emulator {"metadata":{"emulator":{"name":"logging"},"message":"Stopping Logging Emulator"}}
+[error] 
+[error] Error: Script "npm run test" exited with code 3

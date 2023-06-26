@@ -64,11 +64,11 @@ function App() {
 
   return (
     <HashRouter>
-      <Navbar cart = {cartSize} />
+      <Navbar data-testid="navbar" cart = {cartSize} />
     <Routes>
       <Route path="/" element={<Navigate to="/components/Home"/>} />
-      <Route path="/components/Home" element={<Home />} />
-      <Route path="/components/Products" element={<Products  addcartItem = {addItemToCart}  items = {rootItems}/> }/>
+      <Route data-testid="home" path="/components/Home" element={<Home />} />
+      <Route data-testid="products" path="/components/Products" element={<Products  addcartItem = {addItemToCart}  items = {rootItems}/> }/>
       <Route path="/components/Products/:index" element={<ProductDetail  addcartItem = {addItemToCart}  items = {rootItems}/> }/>
       <Route path="/components/ShoppingCart" element={<ShoppingCart emptyCart = {emptyCart}  lower = {removeItemFromCart}  remove = {deleteItemFromCart} cart = {cart} total = {total} />} />
       <Route path="/components/Success" element={<Success emptyCart = {emptyCart} />} />

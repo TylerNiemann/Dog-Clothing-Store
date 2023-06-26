@@ -5,6 +5,7 @@ import {
     GoogleAuthProvider,
     signInWithPopup,
     signOut,
+    connectAuthEmulator,
   } from 'firebase/auth';
 import initial from "../Firebase";
 import "../styles/navbar.css"  
@@ -20,7 +21,7 @@ function SignIn(){
 
     async function signIn() {
         let provider = new GoogleAuthProvider();
-        await signInWithPopup(getAuth(), provider);
+        await signInWithPopup(getAuth(), provider); 
     }
 
     function signOutUser() {
@@ -81,6 +82,7 @@ const useAuth = () => {
   
     useEffect(() => {
       const auth = getAuth();
+      //connectAuthEmulator(auth, 'localhost:9099')
       const unsubscribe = onAuthStateChanged(auth, (user) => {
         setCurrentUser(user);
       });
@@ -89,7 +91,7 @@ const useAuth = () => {
         unsubscribe();
       };
     }, []);
-  
+    
     return currentUser;
   };
 

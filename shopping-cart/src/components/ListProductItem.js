@@ -7,7 +7,6 @@ const ListProductItem = ({add, index, ...item}) => {
     const [quantity, setQuantity] = useState(1);
 
     const addTo = () => {
-      console.log(quantity)
       add(item, quantity);
     }
 
