@@ -6,7 +6,7 @@ import { getFirestore, collection, getDocs, doc, setDoc, connectFirestoreEmulato
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDXOBDnig1ibm_ukclEbax_ifSe64QR47o",
+  apiKey: process.env.REACT_APP_Firebase_Key,
   authDomain: "web-store-6ff8b.firebaseapp.com",
   projectId: "web-store-6ff8b",
   storageBucket: "web-store-6ff8b.appspot.com",
