@@ -16,6 +16,8 @@ Shopping cart functionality: Users can browse products, add items to their cart,
 
 Payment processing: Users can securely complete their purchase using Stripe for payment processing.
 
+Pagination: The platform incorporates pagination to allow users to navigate through large sets of products easily.
+
 Firestore integration: The platform uses Firestore as the database to store product information, user data, and cart details.
 
 Responsive UI: The platform is designed to provide a seamless experience on both desktop and mobile devices.
